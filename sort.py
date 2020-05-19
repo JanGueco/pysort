@@ -3,18 +3,22 @@ from os.path import isfile, abspath
 from shutil import copy, move
 
 
-
+#function to get files in current directory
 def getfiles():
     a = listdir()
     folders = []
     files = []
     for x in a:
+        #python files are excluded.
         if "py" in x:
             a.remove(x)
+        #if the item is not a file, it will be classified as a folder
         elif not isfile(x):
             folders.append(x)
+        #if the item is a file, add to file list
         elif isfile(x):
             files.append(x)
+    #return a 2 lists, files and folders.
     return files,folders
 
 def splittype(files):
